@@ -1,10 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing'; // Needed if your component uses routing features
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        RouterTestingModule // Include this if your component uses RouterOutlet or similar directives
+      ]
     }).compileComponents();
   });
 
@@ -24,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SocialMedia.UI');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Welcome to SocialSight');
   });
 });
