@@ -1,4 +1,28 @@
-<!-- metricsdashboard.component.html -->
-<div class="dashboard-container">
-    <h1>Metrics Component Dashboard</h1>
+<table>
+    <tbody>
+      <tr *ngFor="let row of staticTableData">
+        <td *ngFor="let cell of row">{{ cell.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+<div>
+  <select [(ngModel)]="selectedMetric" (change)="fetchData()">
+    <option value="followerGrowth">Follower Growth</option>
+    <option value="likesPerContentType">Likes per Content Type</option>
+    <option value="commentsPerContentType">Comments per Content Type</option>
+  </select>
+</div>
+
+<div *ngIf="tableData">
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let row of tableData">
+      <td>{{ row.category }}</td>
+      <td>{{ row.value }}</td>
+    </tr>
+  </table>
 </div>
