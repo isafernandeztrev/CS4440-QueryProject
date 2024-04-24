@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'; // Import OnInit
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+//import { SocialMediaService } from '../../services/social-media.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -16,9 +18,10 @@ export class SigninComponent implements OnInit { // Implement OnInit interface
   posts: any[] = [];
   userData: any = {};
 
-  constructor() {
-    // Constructor remains for dependency injection only, avoid initialization logic here
-  }
+  constructor(
+    //private socialMediaService: SocialMediaService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void { // Use ngOnInit for initialization logic
     this.updateForm();
@@ -62,20 +65,25 @@ export class SigninComponent implements OnInit { // Implement OnInit interface
     this.initializeUserData(); // Initialize userData with defaults or based on platform
   }
 
-  onSubmit(): void {
-    console.log('Sending data to server:', this.userData);
-    this.selectedPlatform = '';
-    this.username = '';
-    this.followers.fill(0);
-    this.posts = this.posts.map(() => ({
-      type: '',
-      likes: 0,
-      comments: 0,
-      shares: 0,
-      saves: 0,
-      caption: '',
-      date: new Date().toISOString().substring(0, 10)
-    }));
-    this.initializeUserData(); // Reinitialize userData after form submission
+  navigateToDashboard() {
+    console.log("navigating");
+    this.router.navigate(['/metricsdashboard']);
   }
-}
+
+  onSubmit(): void {
+    this.initializeUserData();
+    
+    // this.socialMediaService.submitData(this.userData).subscribe({
+    //   next: 
+    //   (response) => 
+    //     {
+    //       console.log('Data submitted successfully');
+    //       this.router.navigate(['/metricsdashboard']); 
+    //     },
+    //     error: (error) => 
+    //       {
+    //         console.error('Error submitting data:', error);
+    //       }
+    //     });
+      }
+    }
