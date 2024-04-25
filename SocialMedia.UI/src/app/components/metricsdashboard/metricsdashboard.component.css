@@ -1,0 +1,44 @@
+/* Apply a basic reset to ensure styles are consistent across browsers */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure the table takes up 100% width of its container */
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+  }
+  
+  /* Zebra striping for rows */
+  table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Add border, padding, and centering text for each table cell */
+  table th,
+  table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Style for the table header */
+  table th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Ensure the select element is displayed and has some spacing */
+  select {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  /* Basic styles for the div container to ensure the table is not hidden */
+  div {
+    display: block;
+    margin: 10px 0;
+  }
+  
