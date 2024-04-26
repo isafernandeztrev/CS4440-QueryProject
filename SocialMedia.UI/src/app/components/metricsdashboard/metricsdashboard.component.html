@@ -14,15 +14,54 @@
   </select>
 </div>
 
-<div *ngIf="tableData">
+<div *ngIf="tableData1">
   <table>
     <tr>
-      <th>Category</th>
-      <th>Value</th>
+      <th>Past Follower numbers</th>
+      <th>TikTok</th>
+      <th>Instagram</th>
+      <th>Facebook</th>
     </tr>
     <tr *ngFor="let row of tableData">
       <td>{{ row.category }}</td>
-      <td>{{ row.value }}</td>
+      <td>{{ row.value[0] }}</td>
+      <td>{{ row.value[1] }}</td>
+      <td>{{ row.value[2] }}</td>
     </tr>
   </table>
 </div>
+
+<div *ngIf="tableData2">
+  <table>
+    <tr>
+      <th>Total likes</th>
+      <th>TikTok</th>
+      <th>Instagram</th>
+      <th>Facebook</th>
+    </tr>
+    <tr *ngFor="let row of tableData">
+      <td>{{ row.category }}</td>
+      <td>{{ row.value[0] }}</td>
+      <td>{{ row.value[1] }}</td>
+      <td>{{ row.value[2] }}</td>    
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="tableData3">
+  <table>
+    <tr>
+      <th>Total comments</th>
+      <th>TikTok</th>
+      <th>Instagram</th>
+      <th>Facebook</th>
+    </tr>
+    <tr *ngFor="let row of tableData">
+      <td>{{ row.category }}</td>
+      <td>{{ row.value[0] }}</td>
+      <td>{{ row.value[1] }}</td>
+      <td>{{ row.value[2] }}</td>    
+    </tr>
+  </table>
+</div>
+
