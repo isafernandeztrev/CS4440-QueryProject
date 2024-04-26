@@ -45,10 +45,9 @@ export class SigninComponent implements OnInit {
         type: post.type,
         likes: post.likes,
         comments: post.comments,
-        shares: post.shares,
         saves: post.saves,
-        caption: post.caption,
-        date: post.date
+        Caption: post.caption,
+        Date: post.date
       }))
     };
   }
@@ -84,7 +83,7 @@ export class SigninComponent implements OnInit {
 
   onSubmit(): void {
     this.initializeUserData();
-    //console.log(this.userData);
+    console.log(this.userData);
     
     this.socialMediaService.submitData(this.userData).subscribe({ // post api call
       next: 
