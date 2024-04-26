@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'; // Import OnInit
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-//import { SocialMediaService } from '../../services/social-media.service';
+import { SocialMediaService } from '../../services/social-media.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,27 +11,36 @@ import { Router } from '@angular/router';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit { // Implement OnInit interface
+export class SigninComponent implements OnInit {
   selectedPlatform: string = '';
+  email: string = '';
   username: string = '';
-  followers: number[] = new Array(5).fill(0);
+  currentDate: any = new Date().toISOString().substring(0, 10);
+  followers: number=0;
+  following: number=0;
   posts: any[] = [];
   userData: any = {};
+  postData: any = {};
 
   constructor(
-    //private socialMediaService: SocialMediaService,
+    private socialMediaService: SocialMediaService,
     private router: Router
   ) {}
 
-  ngOnInit(): void { // Use ngOnInit for initialization logic
+  ngOnInit(): void {
     this.updateForm();
   }
 
   initializeUserData() {
     this.userData = {
-      selectedPlatform: this.selectedPlatform,
-      username: this.username,
-      followers: this.followers,
+      Platform: this.selectedPlatform,
+      Description: this.email,
+      PlatformUsername: this.username,
+      FollowerCount: this.followers,
+      FollowingCount: this.following,
+      CreationDate: this.currentDate
+    }
+    this.postData = {
       posts: this.posts.map(post => ({
         type: post.type,
         likes: post.likes,
@@ -45,10 +54,13 @@ export class SigninComponent implements OnInit { // Implement OnInit interface
   }
 
   updateForm(): void {
-    // Assuming you want a default platform to start with or handle no platform selection gracefully
     if (!this.selectedPlatform) {
-      this.selectedPlatform = 'Instagram'; // Set a default platform or manage the case when it's empty
+      this.selectedPlatform = 'Instagram'; // default platform
     }
+    this.username = '';
+    this.currentDate = new Date().toISOString().substring(0, 10);
+    this.followers = 0;
+    this.following = 0;
     this.posts = [];
     for (let i = 0; i < 10; i++) {
       this.posts.push({
@@ -62,7 +74,7 @@ export class SigninComponent implements OnInit { // Implement OnInit interface
       });
     }
 
-    this.initializeUserData(); // Initialize userData with defaults or based on platform
+    this.initializeUserData();
   }
 
   navigateToDashboard() {
@@ -72,18 +84,22 @@ export class SigninComponent implements OnInit { // Implement OnInit interface
 
   onSubmit(): void {
     this.initializeUserData();
+    //console.log(this.userData);
     
-    // this.socialMediaService.submitData(this.userData).subscribe({
-    //   next: 
-    //   (response) => 
-    //     {
-    //       console.log('Data submitted successfully');
-    //       this.router.navigate(['/metricsdashboard']); 
-    //     },
-    //     error: (error) => 
-    //       {
-    //         console.error('Error submitting data:', error);
-    //       }
-    //     });
-      }
+    this.socialMediaService.submitData(this.userData).subscribe({ // post api call
+      next: 
+      (response) => 
+        {
+          console.log('User data submitted successfully: ', this.userData);
+          console.log('Post data submitted successfully: ', this.postData);
+          this.updateForm()
+        },
+        error: (error) => 
+          {
+            console.error('Error submitting data:', error);
+          }
+        });
+  }
+
     }
+

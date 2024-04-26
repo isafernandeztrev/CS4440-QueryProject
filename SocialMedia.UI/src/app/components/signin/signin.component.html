@@ -11,16 +11,17 @@
       <!-- Username -->
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" [(ngModel)]="username">
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" [(ngModel)]="email">
   
       <!-- Number of Followers -->
-      <fieldset>
-        <legend>Followers in the last 5 months:</legend>
-        <input type="number" name="followersMonth1" placeholder="Month 1" [(ngModel)]="followers[0]">
-        <input type="number" name="followersMonth2" placeholder="Month 2" [(ngModel)]="followers[1]">
-        <input type="number" name="followersMonth3" placeholder="Month 3" [(ngModel)]="followers[2]">
-        <input type="number" name="followersMonth4" placeholder="Month 4" [(ngModel)]="followers[3]">
-        <input type="number" name="followersMonth5" placeholder="Month 5" [(ngModel)]="followers[4]">
-      </fieldset>
+      <label for="followers">Number of Followers:</label>
+      <input type="number" id="followers" name="followers" [(ngModel)]="followers">
+
+      <label for="currentDate">Current Date:</label>
+      <input type="date" id="currentDate" name="currentDate" [(ngModel)]="currentDate">
   
       <!-- Post Metrics (Dynamically filled based on selection) -->
       <div *ngFor="let post of posts; let i = index">
@@ -32,11 +33,13 @@
             <option *ngIf="selectedPlatform === 'TikTok'" value="video">Video</option>
             <option *ngIf="selectedPlatform === 'TikTok'" value="picture">Picture</option>
           </select>
+          <label for="likes{{i}}">Likes:</label>
           <input type="number" name="likes{{i}}" placeholder="Likes" [(ngModel)]="post.likes">
+          <label for="comments{{i}}">Comments:</label>
           <input type="number" name="comments{{i}}" placeholder="Comments" [(ngModel)]="post.comments">
-          <input type="number" name="shares{{i}}" *ngIf="selectedPlatform !== 'Instagram'" placeholder="Shares" [(ngModel)]="post.shares">
-          <input type="number" name="saves{{i}}" *ngIf="selectedPlatform !== 'Instagram'" placeholder="Saves" [(ngModel)]="post.saves">
+          <label for="caption{{i}}">Caption:</label>
           <input type="text" name="caption{{i}}" placeholder="Caption" [(ngModel)]="post.caption">
+          <label for="date{{i}}">Date:</label>
           <input type="date" name="date{{i}}" [(ngModel)]="post.date">
         </fieldset>
       </div>

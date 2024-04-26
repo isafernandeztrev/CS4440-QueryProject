@@ -9,6 +9,6 @@ export class SocialMediaService {
 
   submitData(data: any) {
     console.log("data submitted")
-    //return this.http.post('/api/socialmedia', data);
+    return this.http.post('http://localhost:5064/Dashboard/update', data);
   }
 }
