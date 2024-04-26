@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\PlatformUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\PlatformUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\WebApplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Data\\DataContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Data\\DataContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Posts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Posts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Videos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Videos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\WebApplication1\\WebApplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Controllers\\DashboardController.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAQwKAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:04:02.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Posts.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Posts.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Posts.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Posts.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Posts.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAwwBAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:16:11.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Data\\DataContext.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Data\\DataContext.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T15:38:21.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Videos.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Videos.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Videos.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Videos.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Videos.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAwwAoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:16:20.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\appsettings.json",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-25T15:52:48.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlatformUser.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\PlatformUser.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\PlatformUser.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\PlatformUser.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\PlatformUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:03:09.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Program.cs",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAqwBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:01:16.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WebApplication1.csproj",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\WebApplication1.csproj",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\WebApplication1.csproj",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-25T16:04:32.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-25T05:40:17.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WebApplication1.http",
+              "DocumentMoniker": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.http",
+              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1\\WebApplication1.http",
+              "ToolTip": "C:\\Users\\shrey\\OneDrive\\Desktop\\Shrey\\CS4440-QueryProject\\WebApplication1\\WebApplication1\\WebApplication1.http",
+              "RelativeToolTip": "WebApplication1\\WebApplication1\\WebApplication1.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-04-25T05:28:10.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
