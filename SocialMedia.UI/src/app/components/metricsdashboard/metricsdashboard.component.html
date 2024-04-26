@@ -18,15 +18,19 @@
   <table>
     <tr>
       <th>Past Follower numbers</th>
-      <th>TikTok</th>
-      <th>Instagram</th>
-      <th>Facebook</th>
+      <th>Past 5 Month </th>
+      <th>Past 4 Month</th>
+      <th>Past 3 Month</th>
+      <th>Past 2 Month</th>
+      <th>Past 1 Month</th>
     </tr>
     <tr *ngFor="let row of tableData">
       <td>{{ row.category }}</td>
       <td>{{ row.value[0] }}</td>
       <td>{{ row.value[1] }}</td>
       <td>{{ row.value[2] }}</td>
+      <td>{{ row.value[3] }}</td>
+      <td>{{ row.value[4] }}</td>
     </tr>
   </table>
 </div>

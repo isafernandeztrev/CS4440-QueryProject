@@ -53,16 +53,16 @@ export class MetricsdashboardComponent {
   constructor(private http: HttpClient) {
     this.fetchFollowerData();
   }
-  likesTikTokVideo: number = 100;
+  likesTikTokVideo: number = 50;
   likesInstagramVideo: number = 200;
   likesYouTubeVideo: number = 300;
-  commentsTikTokVideo: number = 50;
+  commentsTikTokVideo: number = 40;
   commentsInstagramVideo: number = 100;
   commentsYouTubeVideo: number = 150;
-  likesTikTokPosts: number = 100;
+  likesTikTokPosts: number = 50;
   likesInstagramPosts: number = 200;
   likesYouTubePosts: number = 300;
-  commentsTikTokPosts: number = 50;
+  commentsTikTokPosts: number = 10;
   commentsInstagramPosts: number = 100;
   commentsYouTubePosts: number = 150;
   likesTikTok: number = 100;
@@ -92,8 +92,8 @@ export class MetricsdashboardComponent {
 
   staticTableData: any[] = [
     [{ value: 'Tiktok' }, { value: 'Instagram' }, { value: 'Youtube' }],
-    [{ value: this.likesTikTok+"asda" }, { value: this.likesInstagram }, { value: this.likesYouTube }],
-    [{ value: this.commentsTikTok }, { value: this.commentsInstagram }, { value: this.commentsYouTube}],
+    [{ value: this.likesTikTok + " Total likes" }, { value: this.likesInstagram + " Total likes" }, { value: this.likesYouTube + " Total likes"}],
+    [{ value: this.commentsTikTok + " Total comments"}, { value: this.commentsInstagram + " Total comments"}, { value: this.commentsYouTube+ " Total comments"}],
   ];
 
 
@@ -105,11 +105,9 @@ export class MetricsdashboardComponent {
         this.tableData2 = false;
         this.tableData3 = false;
         this.tableData = [
-          { category: 'past 5 month', value: ['200', '300', '400']},
-          { category: 'past 4 month', value: '450' },
-          { category: 'past 3 month', value: '450' },
-          { category: 'past 2 month', value: '450' },
-          { category: 'past 1 month', value: '450' }
+          { category: 'TikTok', value:this.followersTikTok },
+          { category: 'Instagram', value:this.followersInstagram },
+          { category: 'Youtube', value: this.followersYouTube }
         ]
         break;
       case 'likesPerContentType':
