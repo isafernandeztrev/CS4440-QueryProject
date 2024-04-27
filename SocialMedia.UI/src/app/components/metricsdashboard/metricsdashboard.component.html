@@ -1,4 +1,7 @@
+<h1>Personalized Metrics</h1>
+<h2>Logged in as: {{ userEmail }}</h2>
 <table>
+<<<<<<< HEAD
   <tbody>
     <tr *ngFor="let row of staticTableData">
       <td *ngFor="let cell of row">{{ cell.value }}</td>
@@ -6,6 +9,16 @@
   </tbody>
 </table>
 
+=======
+    <tbody>
+      <tr *ngFor="let row of staticTableData">
+        <td *ngFor="let cell of row">{{ cell.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+<h1>Generalized Metrics</h1>
+>>>>>>> d5413b2f257d9ee4eb41cd00879f0c6921054fff
 <div>
 <select [(ngModel)]="selectedMetric" (change)="fetchData()">
   <option value="followerGrowth">Follower Growth</option>

@@ -82,23 +82,22 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.initializeUserData();
-    console.log(this.userData);
-    
-    this.socialMediaService.submitData(this.userData).subscribe({ // post api call
-      next: 
-      (response) => 
-        {
-          console.log('User data submitted successfully: ', this.userData);
-          console.log('Post data submitted successfully: ', this.postData);
-          this.updateForm()
-        },
-        error: (error) => 
-          {
-            console.error('Error submitting data:', error);
-          }
-        });
-  }
+    this.initializeUserData();  // Initialize or update user data based on current form states
+    this.socialMediaService.email = this.email;  // Save the email to the service, making it globally available
+    console.log('Global email:', this.socialMediaService.email);  // Log the global email for verification
+  
+    // Now, submit data or perform other actions
+    this.socialMediaService.submitData(this.userData).subscribe({
+      next: (response) => {
+        console.log('User data submitted successfully: ', this.userData);
+        console.log('Post data submitted successfully: ', this.postData);
+        this.updateForm();  // Reset the form if needed
+      },
+      error: (error) => {
+        console.error('Error submitting data:', error);
+      }
+    });
+  }  
 
     }
 
