@@ -1,10 +1,11 @@
 
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Metric } from '../../models/metric'; // Update the import path as necessary
+import { Metric } from '../../models/metric';
 import { CommonModule } from '@angular/common';
 import { Falsy } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { SocialMediaService } from '../../services/social-media.service';
 
 @Component({
   selector: 'app-metricsdashboard',
@@ -48,9 +49,14 @@ export class MetricsdashboardComponent {
   tableData1: boolean = false;
   tableData2: boolean = false;
   tableData3: boolean = false;
+  userEmail: string;
 
   // constructor(){};
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private socialMediaService: SocialMediaService
+  ) {
+    this.userEmail = this.socialMediaService.email;
     this.fetchFollowerData();
   }
   likesTikTokVideo: number = 50;
