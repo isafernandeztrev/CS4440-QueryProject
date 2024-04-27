@@ -29,10 +29,10 @@
         <fieldset>
           <legend>Post {{ i + 1 }} Metrics:</legend>
           <select *ngIf="selectedPlatform !== 'YouTube'" [(ngModel)]="post.type" name="postType{{i}}">
-            <option *ngIf="selectedPlatform === 'Instagram'" value="reel">Reel</option>
+            <option *ngIf="selectedPlatform === 'Instagram'" value="video">Video</option>
             <option *ngIf="selectedPlatform === 'Instagram'" value="post">Post</option>
             <option *ngIf="selectedPlatform === 'TikTok'" value="video">Video</option>
-            <option *ngIf="selectedPlatform === 'TikTok'" value="picture">Picture</option>
+            <option *ngIf="selectedPlatform === 'TikTok'" value="post">Post</option>
           </select>
           <label for="likes{{i}}">Likes:</label>
           <input type="number" name="likes{{i}}" placeholder="Likes" [(ngModel)]="post.likes">

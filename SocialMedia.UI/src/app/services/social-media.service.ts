@@ -1,3 +1,4 @@
+// social-media-service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -5,15 +6,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SocialMediaService {
-<<<<<<< HEAD
-  constructor(private http: HttpClient) { 
-  }
-
-  submitData(data: any) {
-    console.log("Data submitted:", data);
-    return this.http.put('http://localhost:5064/Dashboard/update/2', data);
-  }
-=======
   private _email: string = '';
 
   constructor(private http: HttpClient) { }
@@ -30,5 +22,14 @@ export class SocialMediaService {
     console.log("Data submitted:", data);
     return this.http.put('http://localhost:5064/Dashboard/update', data);
   }
->>>>>>> d5413b2f257d9ee4eb41cd00879f0c6921054fff
+
+  updatePost(postData: any) {
+    console.log("postData submitted:", postData);
+    return this.http.put('http://localhost:5064/Dashboard/updatePosts', postData);
+  }
+
+  updateVideo(videoData: any) {
+    console.log("videoData submitted:", videoData);
+    return this.http.put('http://localhost:5064/Dashboard/updateVideos', videoData);
+  }
 }

@@ -16,11 +16,10 @@ export class SigninComponent implements OnInit {
   email: string = '';
   username: string = '';
   currentDate: any = new Date().toISOString().substring(0, 10);
-  followers: number=0;
-  following: number=0;
+  followers: number = 0;
+  following: number = 0;
   posts: any[] = [];
   userData: any = {};
-  postData: any = {};
 
   constructor(
     private socialMediaService: SocialMediaService,
@@ -39,16 +38,6 @@ export class SigninComponent implements OnInit {
       FollowerCount: this.followers,
       FollowingCount: this.following,
       CreationDate: this.currentDate
-    }
-    this.postData = {
-      posts: this.posts.map(post => ({
-        type: post.type,
-        likes: post.likes,
-        comments: post.comments,
-        saves: post.saves,
-        Caption: post.caption,
-        Date: post.date
-      }))
     };
   }
 
@@ -63,7 +52,7 @@ export class SigninComponent implements OnInit {
     this.posts = [];
     for (let i = 0; i < 10; i++) {
       this.posts.push({
-        type: '',
+        type: 'Post', // Assuming some are 'Video' for testing
         likes: 0,
         comments: 0,
         shares: 0,
@@ -77,27 +66,56 @@ export class SigninComponent implements OnInit {
   }
 
   navigateToDashboard() {
-    console.log("navigating");
     this.router.navigate(['/metricsdashboard']);
   }
 
   onSubmit(): void {
-    this.initializeUserData();  // Initialize or update user data based on current form states
-    this.socialMediaService.email = this.email;  // Save the email to the service, making it globally available
-    console.log('Global email:', this.socialMediaService.email);  // Log the global email for verification
-  
-    // Now, submit data or perform other actions
+    this.initializeUserData();
+    this.socialMediaService.email = this.email;
+    console.log('Global email:', this.socialMediaService.email);
+
+    // Submit user data once
     this.socialMediaService.submitData(this.userData).subscribe({
       next: (response) => {
         console.log('User data submitted successfully: ', this.userData);
-        console.log('Post data submitted successfully: ', this.postData);
-        this.updateForm();  // Reset the form if needed
+
+        // Handle posts based on type
+        this.posts.forEach(post => {
+          if (post.type === "Post") {
+            const postData = {
+              Email: this.email,
+              Platform: this.selectedPlatform,
+              Caption: post.caption,
+              Date: post.date,
+              LikesCount: post.likes,
+              CommentsCount: post.comments
+            };
+            this.socialMediaService.updatePost(postData).subscribe({
+              next: (res) => console.log('Post updated successfully', res),
+              error: (err) => console.error('Error updating post', err)
+            });
+          } else if (post.type === "Video") {
+            const videoData = {
+              Email: this.email,
+              Platform: this.selectedPlatform,
+              Description: post.caption, 
+              UploadDate: post.date,
+              LikesCount: post.likes,
+              CommentsCount: post.comments
+            };
+            this.socialMediaService.updateVideo(videoData).subscribe({
+              next: (res) => console.log('Video updated successfully', res),
+              error: (err) => console.error('Error updating video', err)
+            });
+          }
+        });
+
+        // Navigate to Dashboard after all operations
+        this.navigateToDashboard();
       },
       error: (error) => {
-        console.error('Error submitting data:', error);
+        console.error('Error submitting user data:', error);
       }
     });
-  }  
-
-    }
-
+  }
+}
