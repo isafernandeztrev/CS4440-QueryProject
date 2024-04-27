@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SocialMediaService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   submitData(data: any) {
-    console.log("data submitted")
-    return this.http.post('http://localhost:5064/Dashboard/update', data);
+    console.log("Data submitted:", data);
+    return this.http.put('http://localhost:5064/Dashboard/update/2', data);
   }
 }

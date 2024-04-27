@@ -1,4 +1,3 @@
-
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Metric } from '../../models/metric'; // Update the import path as necessary
@@ -20,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 //     { id: 2, platform: 'Facebook', totalLikes: 4500, numberOfComments: 250 },
 //     { id: 3, platform: 'YouTube', totalLikes: 6000, numberOfComments: 400 }
 //   ];
-  
+ 
 //   selectedTable = 'likesPerContentType';  // Default value
 //   updateTable(selectedValue: string): void {
 //     this.selectedTable = selectedValue;
@@ -39,7 +38,7 @@ import { HttpClient } from '@angular/common/http';
 //     // For now, it's just the simulated data
 //   }
 
-  
+ 
 // }
 
 export class MetricsdashboardComponent {
@@ -74,9 +73,9 @@ export class MetricsdashboardComponent {
   followersTikTok: any[] = [100, 200, 300, 400, 500];
   followersInstagram: any[] = [100, 200, 300, 400, 500];
   followersYouTube: any[] = [100, 200, 300, 400, 500];
-  
+ 
 
-  
+ 
   fetchFollowerData() {
     this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumOfFollowers').subscribe({
       next: (data) => {

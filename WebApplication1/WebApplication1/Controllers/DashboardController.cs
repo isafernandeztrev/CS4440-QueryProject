@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("GetFirstDashboard")]
-        public async Task<IActionResult> GetFirstDashboard()
+        public async Task<IActionResult> GetFirstDashboard(string description)
         {
             var platforms = new string[] { "TikTok", "YouTube", "Instagram" };
             var results = new int[3, 2];
@@ -25,21 +25,21 @@ namespace WebApplication1.Controllers
                 string platform = platforms[i];
 
                 var totalLikes = await _context.PlatformUsers
-                    .Where(pu => pu.Platform == platform)
+                    .Where(pu => pu.Platform == platform && pu.Description == description)
                     .Join(_context.Posts, pu => pu.ProfileId, post => post.ProfileId,
                           (pu, post) => post.LikesCount)
                     .Concat(_context.PlatformUsers
-                        .Where(pu => pu.Platform == platform)
+                        .Where(pu => pu.Platform == platform && pu.Description == description)
                         .Join(_context.Videos, pu => pu.ProfileId, video => video.ProfileId,
                               (pu, video) => video.LikesCount))
                     .SumAsync();
 
                 var totalComments = await _context.PlatformUsers
-                    .Where(pu => pu.Platform == platform)
+                    .Where(pu => pu.Platform == platform && pu.Description == description)
                     .Join(_context.Posts, pu => pu.ProfileId, post => post.ProfileId,
                           (pu, post) => post.CommentsCount)
                     .Concat(_context.PlatformUsers
-                        .Where(pu => pu.Platform == platform)
+                        .Where(pu => pu.Platform == platform && pu.Description == description)
                         .Join(_context.Videos, pu => pu.ProfileId, video => video.ProfileId,
                               (pu, video) => video.CommentsCount))
                     .SumAsync();
@@ -112,18 +112,20 @@ namespace WebApplication1.Controllers
             });
         }
 
-        [HttpPut("update/{id}")]
-        public async Task<IActionResult> UpdatePlatformUser(int id, [FromBody] PlatformUserUpdateDto updateDto)
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdatePlatformUser([FromBody] PlatformUserUpdateDto updateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.PlatformUsers.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound($"User with ID {id} not found.");
+           var user = await _context.PlatformUsers
+            .Where(pu => pu.Description == updateDto.Description && pu.Platform == updateDto.Platform)
+            .FirstOrDefaultAsync();
+
+            if (user == null) {
+                user = new PlatformUser();
             }
 
        
@@ -154,9 +156,129 @@ namespace WebApplication1.Controllers
             public string Platform { get; set; } = string.Empty;
             public string Description { get; set; } = string.Empty;
             public int FollowerCount { get; set; }
-            public int FollowingCount { get; set; }
+            public int FollowingCount{get; set;}
             public string CreationDate { get; set; } = string.Empty;
         }
+
+        [HttpPut("updatePosts")]
+        public async Task<IActionResult> UpdatePosts([FromBody] PostsUpdateDto updateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var profile = await _context.PlatformUsers
+                .FirstOrDefaultAsync(pu => pu.Description == updateDto.Email && pu.Platform == updateDto.Platform);
+
+            var post = await _context.Posts 
+                .FirstOrDefaultAsync(p => p.ProfileId == profile.ProfileId && p.Caption == updateDto.Caption);
+
+            if (post == null)
+            {
+                post = new Posts
+                {
+                    ProfileId = profile.ProfileId,
+                    Caption = updateDto.Caption,
+                    Date = updateDto.Date,
+                    LikesCount = updateDto.LikesCount,
+                    CommentsCount = updateDto.CommentsCount
+                };
+                _context.Posts.Add(post);
+            }
+            else
+            {
+        
+                post.LikesCount = updateDto.LikesCount;
+                post.CommentsCount = updateDto.CommentsCount;
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok(post); 
+            }
+            catch (DbUpdateException ex)
+            {
+        
+                return StatusCode(500, $"An error occurred while updating the post: {ex.Message}");
+            }
+        }
+
+        public class PostsUpdateDto
+        {   
+            public string Email { get; set; } = string.Empty;
+            public string Platform { get; set; } = string.Empty;
+            public string Caption { get; set; } = string.Empty;
+            public string Date { get; set; } = string.Empty;
+            public int LikesCount { get; set; }
+            public int CommentsCount { get; set; }
+        }
+
+
+
+
+        [HttpPut("updateVideos")]
+        public async Task<IActionResult> UpdatePosts([FromBody] VideosUpdateDto updateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var profile = await _context.PlatformUsers
+                .FirstOrDefaultAsync(pu => pu.Description == updateDto.Email && pu.Platform == updateDto.Platform);
+
+            var video = await _context.Videos 
+                .FirstOrDefaultAsync(v => v.ProfileId == profile.ProfileId && v.Title == updateDto.Title);
+
+            if (video == null)
+            {
+                video = new Videos
+                {
+                    ProfileId = profile.ProfileId,
+                    Title = updateDto.Title,
+                    Description = updateDto.Description,
+                    UploadDate = updateDto.UploadDate,
+                    LikesCount = updateDto.LikesCount,
+                    CommentsCount = updateDto.CommentsCount
+                };
+                _context.Videos.Add(video);
+            }
+            else
+            {
+        
+                video.LikesCount = updateDto.LikesCount;
+                video.CommentsCount = updateDto.CommentsCount;
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok(video); 
+            }
+            catch (DbUpdateException ex)
+            {
+        
+                return StatusCode(500, $"An error occurred while updating the post: {ex.Message}");
+            }
+        }
+
+        public class VideosUpdateDto
+        {   
+            public string Email { get; set; } = string.Empty;
+            public string Platform { get; set; } = string.Empty;
+            public string Title { get; set; } = string.Empty;
+            public string Description { get; set; } = string.Empty;
+            public string UploadDate { get; set; } = string.Empty;
+            public int LikesCount{get; set;}
+            public int CommentsCount{get; set;}
+        }
+
+
+
+
+
 
     }
 }
