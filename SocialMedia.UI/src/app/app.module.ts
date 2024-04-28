@@ -6,6 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { MetricsdashboardComponent } from './components/metricsdashboard/metricsdashboard.component';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+// import * as PlotlyJS from 'plotly.js-dist-min';
+// import { PlotlyModule } from 'angular-plotly.js';
+
+// PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
@@ -16,7 +21,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MetricsdashboardComponent
+    MetricsdashboardComponent,
+    NgxChartsModule
   ],
   providers: [
     
