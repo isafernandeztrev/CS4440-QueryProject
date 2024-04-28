@@ -7,10 +7,7 @@ import { MetricsdashboardComponent } from './components/metricsdashboard/metrics
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-// import * as PlotlyJS from 'plotly.js-dist-min';
-// import { PlotlyModule } from 'angular-plotly.js';
 
-// PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [

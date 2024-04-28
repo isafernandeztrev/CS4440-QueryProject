@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Metric } from '../../models/metric';
 import { CommonModule } from '@angular/common';
 import { Falsy } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { SocialMediaService } from '../../services/social-media.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+
 
 
 @Component({
@@ -59,20 +61,17 @@ export class MetricsdashboardComponent {
   ) {
     this.userEmail = this.socialMediaService.email;
     this.fetchFollowerTrendData();
+    this.fetchFirstDashboardData();
+    this.fetchLikesPosts();
+    this.fetchLikesVideos();
+    this.fetchCommentsPosts();
+    this.fetchCommentsVideos();
   }
   
-  likesTikTokVideo: number = 50;
-  likesInstagramVideo: number = 200;
-  likesYouTubeVideo: number = 300;
-  commentsTikTokVideo: number = 40;
-  commentsInstagramVideo: number = 100;
-  commentsYouTubeVideo: number = 150;
-  likesTikTokPosts: number = 50;
-  likesInstagramPosts: number = 200;
-  likesYouTubePosts: number = 300;
-  commentsTikTokPosts: number = 10;
-  commentsInstagramPosts: number = 100;
-  commentsYouTubePosts: number = 150;
+  likesPosts: number = 50;
+  likesVideos: number = 200;
+  commentsPosts: number = 100;
+  commentsVideos: number = 150;
   likesTikTok: number = 100;
   likesInstagram: number = 200;
   likesYouTube: number = 300;
@@ -82,41 +81,8 @@ export class MetricsdashboardComponent {
   followersTikTok: any[] = [100, 200, 300, 112, 500];
   followersInstagram: any[] = [100, 200, 332, 400, 500];
   followersYouTube: any[] = [100, 200, 300, 321, 500];
- 
-
-
-
-  fetchFollowerTrendData() {
-    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumOfFollowers').subscribe({
-      next: (data) => {
-        // Assuming data comes in the form of { likesTikTok: 100, likesInstagram: 200, ... }
-        this.followersTikTok = data[0];
-        this.followersInstagram = data[1];
-        this.followersYouTube = data[2];
-        // this.updateTableData();
-      },
-      error: (err) => console.error('Error fetching static data:', err)
-    });
-  }
- 
-
-
-  fetchFirstDashboardData() {
-    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumOfFollowers').subscribe({
-      next: (data) => {
-        // Assuming data comes in the form of { likesTikTok: 100, likesInstagram: 200, ... }
-        this.likesTikTok = data[0][0];
-        this.likesInstagram = data[1][0];
-        this.likesYouTube = data[2][0];
-        this.commentsTikTok = data[0][1];
-        this.commentsInstagram = data[1][1];
-        this.commentsYouTube = data[2][1];
-        // this.updateTableData();
-      },
-      error: (err) => console.error('Error fetching static data:', err)
-    });
-  }
-
+  queryID = 1;
+  contentType = 'Posts';
 
 
   staticTableData: any[] = [
@@ -126,6 +92,90 @@ export class MetricsdashboardComponent {
   ];
 
 
+  fetchFollowerTrendData() {
+    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumOfFollowers').subscribe({
+      next: (data) => {
+        // Assuming data comes in the form of { likesTikTok: 100, likesInstagram: 200, ... }
+        this.followersTikTok = data[0];
+        this.followersInstagram = data[2];
+        this.followersYouTube = data[1];
+        // this.updateTableData();
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
+ 
+
+
+  fetchFirstDashboardData() {
+    let params = new HttpParams().set('description', this.userEmail);
+    this.http.get<any>('http://localhost:5064/Dashboard/getFirstDashboard', { params }).subscribe({
+      next: (data) => {
+        this.likesTikTok = data[0][0];
+        this.likesInstagram = data[2][0];
+        this.likesYouTube = data[1][0];
+        this.commentsTikTok = data[0][1];
+        this.commentsInstagram = data[2][1];
+        this.commentsYouTube = data[1][1];
+        // this.updateTableData();
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
+
+  
+  fetchLikesPosts() {
+    this.queryID = 0;
+    this.contentType = 'Posts';
+    let params = new HttpParams()
+    .set('queryID', this.queryID.toString())
+    .set('contentType', this.contentType);    
+    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumberOfLikesAndComments', { params }).subscribe({
+      next: (data) => {
+        this.likesPosts = data
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
+
+  fetchLikesVideos() {
+    this.queryID = 0;
+    this.contentType = 'Videos';
+    let params = new HttpParams()
+    .set('queryID', this.queryID.toString())
+    .set('contentType', this.contentType);    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumberOfLikesAndComments', { params }).subscribe({
+      next: (data) => {
+        this.likesVideos = data
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
+
+  fetchCommentsPosts() {
+    this.queryID = 1;
+    this.contentType = 'Posts';
+    let params = new HttpParams()
+    .set('queryID', this.queryID.toString())
+    .set('contentType', this.contentType);    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumberOfLikesAndComments', { params }).subscribe({
+      next: (data) => {
+        this.commentsPosts = data
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
+
+  fetchCommentsVideos() {
+    this.queryID = 1;
+    this.contentType = 'Videos';
+    let params = new HttpParams()
+    .set('queryID', this.queryID.toString())
+    .set('contentType', this.contentType);    this.http.get<any>('http://localhost:5064/Dashboard/getTotalNumberOfLikesAndComments', { params }).subscribe({
+      next: (data) => {
+        this.commentsVideos = data
+      },
+      error: (err) => console.error('Error fetching static data:', err)
+    });
+  }
 
   fetchData() {
     switch (this.selectedMetric) {
@@ -144,8 +194,8 @@ export class MetricsdashboardComponent {
         this.tableData2 = true;
         this.tableData3 = false;
         this.tableData = [
-          { category: 'Posts', value: [1,2,3] },
-          { category: 'Videos', value:[1,2,3] }
+          { category: 'Posts', value: this.likesPosts },
+          { category: 'Videos', value: this.likesVideos }
         ];
         break;
       case 'commentsPerContentType':
@@ -153,8 +203,8 @@ export class MetricsdashboardComponent {
         this.tableData2 = false;
         this.tableData3 = true;
         this.tableData = [
-          { category: 'Posts', value: [1,2,3] },
-          { category: 'Videos', value: [1,2,3] }
+          { category: 'Posts', value: this.commentsPosts },
+          { category: 'Videos', value: this.commentsVideos }
         ];
         break;
       default:
