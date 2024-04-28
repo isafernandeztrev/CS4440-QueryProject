@@ -120,10 +120,18 @@ export class MetricsdashboardComponent {
         this.commentsTikTok = data[0][1];
         this.commentsInstagram = data[2][1];
         this.commentsYouTube = data[1][1];
-        // this.updateTableData();
+        this.updateStaticTableData(); // Call this method to update the table data
       },
       error: (err) => console.error('Error fetching static data:', err)
     });
+  }
+
+  updateStaticTableData() {
+    this.staticTableData = [
+      [{ value: 'Tiktok' }, { value: 'Instagram' }, { value: 'Youtube' }],
+      [{ value: this.likesTikTok + " Total likes" }, { value: this.likesInstagram + " Total likes" }, { value: this.likesYouTube + " Total likes"}],
+      [{ value: this.commentsTikTok + " Total comments"}, { value: this.commentsInstagram + " Total comments"}, { value: this.commentsYouTube+ " Total comments"}],
+    ];
   }
 
   
