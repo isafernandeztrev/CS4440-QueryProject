@@ -230,14 +230,14 @@ namespace WebApplication1.Controllers
                 .FirstOrDefaultAsync(pu => pu.Description == updateDto.Email && pu.Platform == updateDto.Platform);
 
             var video = await _context.Videos 
-                .FirstOrDefaultAsync(v => v.ProfileId == profile.ProfileId && v.Title == updateDto.Title);
+                .FirstOrDefaultAsync(v => v.ProfileId == profile.ProfileId);
 
             if (video == null)
             {
                 video = new Videos
                 {
                     ProfileId = profile.ProfileId,
-                    Title = updateDto.Title,
+                    Title = "",
                     Description = updateDto.Description,
                     UploadDate = updateDto.UploadDate,
                     LikesCount = updateDto.LikesCount,
@@ -268,7 +268,6 @@ namespace WebApplication1.Controllers
         {   
             public string Email { get; set; } = string.Empty;
             public string Platform { get; set; } = string.Empty;
-            public string Title { get; set; } = string.Empty;
             public string Description { get; set; } = string.Empty;
             public string UploadDate { get; set; } = string.Empty;
             public int LikesCount{get; set;}
