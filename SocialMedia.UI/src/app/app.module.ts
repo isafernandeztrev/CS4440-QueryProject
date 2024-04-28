@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MetricsdashboardComponent } from './components/metricsdashboard/metricsdashboard.component';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MetricsdashboardComponent
+    MetricsdashboardComponent,
+    NgxChartsModule
   ],
   providers: [
     

@@ -83,7 +83,7 @@ namespace WebApplication1.Controllers
         [HttpGet("getTotalNumOfFollowers")]
         public async Task<IActionResult> GetTotalNumOfFollowers()
         {
-            var platforms = new string[] { "TikTok", "YouTube", "Facebook" };
+            var platforms = new string[] { "TikTok", "YouTube", "Instagram" };
             var results = new int[3, 5];
             var now = DateTime.UtcNow;
 
